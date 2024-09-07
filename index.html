@@ -3,28 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <style>
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 10px;
-            padding: 20px;
-        }
-        .button {
-            padding: 10px;
-            text-align: center;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #e0e0e0;
-        }
-    </style>
+    
     <div class="button-grid">
         <!-- Generate 100 buttons -->
         <div class="button" id="btn1">Button 1</div>
@@ -128,5 +111,6 @@
         <div class="button" id="btn99">Button 99</div>
         <div class="button" id="btn100">Button 100</div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
