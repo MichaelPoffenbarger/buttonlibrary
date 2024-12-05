@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardMaster - Your Ultimate TCG Destination</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #6200EA;
+            --secondary-color: #3700B3;
+            --accent-color: #03DAC6;
+            --text-color: #333333;
+            --bg-color: #F5F5F5;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/random/1600x900/?trading-card-game') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 150px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-tcg {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tcg:hover {
+            background-color: #04b8a8;
+            color: var(--text-color);
+            transform: translateY(-2px);
+        }
+
+        .trustees {
+            background-color: var(--card-bg);
+            padding: 50px 0;
+        }
+
+        .about, .reviews, .faq {
+            background-color: var(--bg-color);
+            padding: 100px 0;
+        }
+
+        .products {
+            background-color: var(--card-bg);
+            padding: 100px 0;
+        }
+
+        .contact {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 100px 0;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .tcg-card {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tcg-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tcg-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .flip-in {
+            opacity: 0;
+            transform: rotateY(90deg);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .flip-in.visible {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+
+        .accordion-button {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color) !important;
+        }
+
+        .accordion-body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        input, textarea {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+            border: 1px solid var(--secondary-color) !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #999999 !important;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-dragon me-2"></i>CardMaster
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-content text-center">
+        <h1 class="display-4 fw-bold mb-4">Your Ultimate TCG Destination</h1>
+        <p class="lead mb-4">Discover, collect, and battle with the best trading card games in the world</p>
+        <a href="#" class="btn btn-tcg btn-lg">Shop Now</a>
+    </div>
+</section>
+
+<section class="trustees">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-2 col-4 mb-4 mb-md-0">
+                <img src="https://via.placeholder.com/150x50?text=Pokemon" alt="Pokemon" class="img-fluid">
+            </div>
+            <div class="col-md-2 col-4 mb-4 mb-md-0">
+                <img src="https://via.placeholder.com/150x50?text=Magic" alt="Magic: The Gathering" class="img-fluid">
+            </div>
+            <div class="col-md-2 col-4 mb-4 mb-md-0">
+                <img src="https://via.placeholder.com/150x50?text=Yu-Gi-Oh!" alt="Yu-Gi-Oh!" class="img-fluid">
+            </div>
+            <div class="col-md-2 col-4 mb-4 mb-md-0">
+                <img src="https://via.placeholder.com/150x50?text=Digimon" alt="Digimon" class="img-fluid">
+            </div>
+            <div class="col-md-2 col-4">
+                <img src="https://via.placeholder.com/150x50?text=Flesh+and+Blood" alt="Flesh and Blood" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://source.unsplash.com/random/600x400/?card-game" alt="About CardMaster"
+                     class="img-fluid rounded-3 shadow-lg">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="mb-4">Your Gateway to TCG Excellence</h2>
+                <p>At CardMaster, we're more than just a store – we're a community of passionate TCG enthusiasts. Our
+                    mission is to provide collectors and players with the best cards, accessories, and gaming
+                    experiences.</p>
+                <p>Whether you're a seasoned pro or just starting your TCG journey, we have everything you need to build
+                    your dream deck and dominate the competition.</p>
+                <a href="#" class="btn btn-tcg mt-3">Learn More About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="products">
+    <div class="container">
+        <h2 class="text-center mb-5">Featured Products</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <img src="https://source.unsplash.com/random/300x200/?pokemon-cards" class="card-img-top"
+                         alt="Pokemon Cards">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Pokemon Booster Box</h3>
+                        <p class="card-text">Catch 'em all with our latest Pokemon booster box!</p>
+                        <a href="#" class="btn btn-tcg">Shop Pokemon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <img src="https://source.unsplash.com/random/300x200/?magic-the-gathering" class="card-img-top"
+                         alt="Magic: The Gathering Cards">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Magic: The Gathering Bundle</h3>
+                        <p class="card-text">Unleash your inner planeswalker with our MTG bundle!</p>
+                        <a href="#" class="btn btn-tcg">Shop Magic</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <img src="https://source.unsplash.com/random/300x200/?yugioh-cards" class="card-img-top"
+                         alt="Yu-Gi-Oh! Cards">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Yu-Gi-Oh! Starter Deck</h3>
+                        <p class="card-text">Start your dueling journey with our Yu-Gi-Oh! starter deck!</p>
+                        <a href="#" class="btn btn-tcg">Shop Yu-Gi-Oh!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews" class="reviews">
+    <div class="container">
+        <h2 class="text-center mb-5">What Our Customers Say</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"CardMaster is my go-to store for all things TCG. Their selection is
+                            unbeatable, and the staff is incredibly knowledgeable!"</p>
+                        <footer class="blockquote-footer">Sarah L., Pokemon Trainer</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"I love the weekly tournaments at CardMaster. It's a great place to meet
+                            fellow players and test your skills!"</p>
+                        <footer class="blockquote-footer">Mike R., Magic: The Gathering Enthusiast</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card tcg-card h-100 flip-in">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"The prices at CardMaster are fair, and their reward program is awesome. I've
+                            saved so much on my Yu-Gi-Oh! collection!"</p>
+                        <footer class="blockquote-footer">Emily T., Duelist</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="faq">
+    <div class="container">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Do you offer international shipping?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer international shipping to most countries. Shipping rates and delivery times
+                                vary depending on the destination. Please check our shipping page for more details or
+                                contact our customer service for specific inquiries.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How do I know if a card is authentic?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                All our cards are sourced from reputable distributors and undergo a rigorous
+                                authentication process. We also offer authentication services for your existing cards. If
+                                you have any doubts about a card's authenticity, please don't hesitate to contact our
+                                expert team.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Do you host tournaments or events?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we regularly host tournaments and events for various TCGs. These include weekly
+                                casual play nights, pre-release events for new sets, and official tournament
+                                qualifiers. Check our events calendar or sign up for our newsletter to stay updated on
+                                upcoming events.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="text-center mb-5">Get in Touch</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-tcg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <h5>About CardMaster</h5>
+                <p>Your one-stop shop for all things TCG.</p>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-white">Terms of Service</a></li>
+                    <li><a href="#" class="text-white">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Connect With Us</h5>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="text-center">
+            <p>&copy; 2024 CardMaster. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Smooth scrolling for nav links
+        $('a.nav-link').on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 70
+                }, 800);
+            }
+        });
+
+        // Flip-in animation for sections
+        $(window).scroll(function () {
+            $('.flip-in').each(function () {
+                var top_of_element = $(this).offset().top;
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                if (bottom_of_window > top_of_element) {
+                    $(this).addClass('visible');
+                }
+            });
+        });
+
+        // Initialize flip-in elements
+        $('.flip-in').each(function () {
+            $(this).addClass('flip-in');
+        });
+    });
+</script>
+</body>
+</html>
