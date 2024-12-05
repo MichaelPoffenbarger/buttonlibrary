@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroWave - Blast from the Past</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+        :root {
+            --primary-color: #FF00FF;
+            --secondary-color: #00FFFF;
+            --text-color: #FFFFFF;
+            --bg-color: #000080;
+            --card-bg: #000000;
+        }
+
+        body {
+            font-family: 'VT323', monospace;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+        }
+
+        .navbar {
+            background-color: var(--card-bg);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .hero {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 4px
+            );
+            pointer-events: none;
+        }
+
+        .btn-retro {
+            background-color: var(--primary-color);
+            color: var(--card-bg);
+            border: none;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-retro:hover {
+            background-color: var(--secondary-color);
+            color: var(--card-bg);
+            transform: scale(1.05);
+        }
+
+        .trustees {
+            background-color: var(--card-bg);
+            padding: 50px 0;
+        }
+
+        .about, .reviews, .faq {
+            background-color: var(--bg-color);
+            padding: 100px 0;
+        }
+
+        .products {
+            background-color: var(--card-bg);
+            padding: 100px 0;
+        }
+
+        .contact {
+            background-color: var(--primary-color);
+            padding: 100px 0;
+        }
+
+        footer {
+            background-color: var(--card-bg);
+            padding: 50px 0;
+            border-top: 2px solid var(--secondary-color);
+        }
+
+        .retro-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .retro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+        }
+
+        .retro-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--primary-color);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--secondary-color);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(17px, 9999px, 94px, 0);
+            }
+            20% {
+                clip: rect(63px, 9999px, 44px, 0);
+            }
+            40% {
+                clip: rect(145px, 9999px, 9px, 0);
+            }
+            60% {
+                clip: rect(67px, 9999px, 115px, 0);
+            }
+            80% {
+                clip: rect(39px, 9999px, 52px, 0);
+            }
+            100% {
+                clip: rect(102px, 9999px, 73px, 0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip: rect(65px, 9999px, 119px, 0);
+            }
+            20% {
+                clip: rect(51px, 9999px, 32px, 0);
+            }
+            40% {
+                clip: rect(21px, 9999px, 147px, 0);
+            }
+            60% {
+                clip: rect(95px, 9999px, 4px, 0);
+            }
+            80% {
+                clip: rect(130px, 9999px, 76px, 0);
+            }
+            100% {
+                clip: rect(19px, 9999px, 56px, 0);
+            }
+        }
+
+        .accordion-button {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color) !important;
+        }
+
+        .accordion-body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        input, textarea {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--secondary-color) !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-gamepad me-2"></i>RetroWave
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4 glitch" data-text="Blast from the Past">Blast from the Past</h1>
+                    <p class="lead mb-4">Experience the nostalgia of the 80s and 90s with our retro-inspired products.</p>
+                    <a href="#" class="btn btn-retro btn-lg">Time Travel Now</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/hologram.jpg" alt="Retro Hero" class="img-fluid rounded-3 shadow-lg pt-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trustees">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-2 col-4 mb-4 mb-md-0">
+                    <img src="https://imgs.search.brave.com/_6HjYR9uCn6wzs6XUERi9WMh8FFsAx1C2oJO3UOxifk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cm91bmRoaWxsaW52/ZXN0bWVudHMuY29t/L2Fzc2V0cy9pbWcv/cmF6ZXItbG9nby5w/bmc" alt="Arcade Kings" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-4 mb-4 mb-md-0">
+                    <img src="https://imgs.search.brave.com/fgDGLSLyUw8acVSYvrF40e_kKHqhvbScS4bY4CrsUYw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb21w/YW5pZXNsb2dvLmNv/bS9pbWcvb3JpZy9M/T0dJX0JJRy5ELTNm/Mjg4ZTIxLnBuZz90/PTE3MjAyNDQ0OTI" alt="Pixel Perfect" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-4 mb-4 mb-md-0">
+                    <img src="https://via.placeholder.com/150x50?text=Synth+Wave" alt="Synth Wave" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-4 mb-4 mb-md-0">
+                    <img src="https://via.placeholder.com/150x50?text=Neon+Dreams" alt="Neon Dreams" class="img-fluid">
+                </div>
+                <div class="col-md-2 col-4 mb-4 mb-md-0">
+                    <img src="https://via.placeholder.com/150x50?text=8-Bit+Wonders" alt="8-Bit Wonders" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="img/robit.jpg" alt="About RetroWave" class="img-fluid rounded-3 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4 glitch" data-text="Back to the Future">Back to the Future</h2>
+                    <p>At RetroWave, we're passionate about bringing the best of the past into the present. Our products combine the aesthetics of the 80s and 90s with modern technology, creating a unique blend of nostalgia and functionality.</p>
+                    <p>From neon-lit gadgets to synthwave-inspired audio gear, we've got everything a retro enthusiast could dream of.</p>
+                    <a href="#" class="btn btn-retro mt-3">Discover Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="text-center mb-5 glitch" data-text="Retro Gear">Retro Gear</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100" style="background-image: url('img/hologram.jpg'); background-size: cover; background-position: center;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-headphones retro-icon mb-4"></i>
+                            <h3 class="card-title" style="color: #f0f0f0;">SynthPhones</h3>
+                            <p class="card-text" style="color: #f0f0f0;">Experience your music with the warm, rich tones of the 80s.</p>
+                            <a href="#" class="btn btn-retro">Tune In</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100" style="background-image: url('img/console.jpg'); background-size: cover; background-position: center;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-gamepad retro-icon mb-4"></i>
+                            <h3 class="card-title" style="color: #f0f0f0;">PixelPlay Console</h3>
+                            <p class="card-text" style="color: #f0f0f0;">Relive the golden age of gaming with our 8-bit inspired console.</p>
+                            <a href="#" class="btn btn-retro">Start Gaming</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100" style="background-image: url('img/robit1.jpg'); background-size: cover; background-position: center;">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock retro-icon mb-4"></i>
+                            <h3 class="card-title" style="color: #f0f0f0;">NeonTime Watch</h3>
+                            <p class="card-text" style="color: #f0f0f0;">Tell time in style with our neon-lit, retro-futuristic timepiece.</p>
+                            <a href="#" class="btn btn-retro">Check the Time</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="text-center mb-5 glitch" data-text="Retro Reviews">Retro Reviews</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text" style="color: #f0f0f0;">"SynthPhones transported me back to the 80s! The sound quality is incredible, and the design is spot-on."</p>
+                            <footer class="blockquote-footer text-light">Mike, Music Enthusiast</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="card-text" style="color: #f0f0f0;">"PixelPlay Console is a blast! It's like having my childhood back, but with modern conveniences."</p>
+                            <footer class="blockquote-footer text-light">Sarah, Retro Gamer</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card retro-card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text" style="color: #f0f0f0;">"NeonTime Watch is a conversation starter! It's both functional and a piece of wearable art."</p>
+                            <footer class="blockquote-footer text-light">Alex, Fashion Blogger</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="text-center mb-5 glitch" data-text="FAQs">FAQs</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Are RetroWave products compatible with modern devices?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, all RetroWave products are designed to work seamlessly with modern technology while maintaining their retro aesthetic. Our products use standard connections and are compatible with most current devices.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Do you offer international shipping?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We ship our retro goodness worldwide. Shipping costs and delivery times vary depending on the destination. Please check our shipping page for more details.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Are your products collectible items?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    While our products are fully functional modern devices, many customers do collect them for their unique retro designs. We often release limited edition items that can become valuable collectibles over time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="text-center mb-5 glitch" data-text="Contact Us">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-retro">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>About RetroWave</h5>
+                    <p>Bringing the best of the past into the future.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Privacy Policy</a></li>
+                        <li><a href="#" class="text-light">Terms of Service</a></li>
+                        <li><a href="#" class="text-light">Retro Care Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2023 RetroWave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Smooth scrolling for nav links
+            $('a.nav-link').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 70
+                    }, 800);
+                }
+            });
+
+            // Glitch effect on hover
+            $('.glitch').hover(function() {
+                $(this).addClass('active');
+            }, function() {
+                $(this).removeClass('active');
+            });
+        });
+    </script>
+</body>
+</html>
