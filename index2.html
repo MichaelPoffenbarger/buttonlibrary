@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Arvidson - Artisan Blacksmith</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+        body {
+            background-image: url('https://imgs.search.brave.com/M_oC568RY--keeFqyy9DM1iKzieR-lyVh_JRIoItOUk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzU0Lzg2LzQ0/LzM2MF9GXzU0ODY0/NDU3X0VJSTM3cVYx/dTloeko2ZEsyU3Rk/TGswa2s2TnJPVldU/LmpwZw');
+            font-family: 'Special Elite', cursive;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        
+
+        .testimonial {
+            background: none;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .product-card {
+            background: none;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .faq-item {
+            background: none;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .explore-btn {
+            background: #333;
+            color: rgb(255, 255, 255);
+            padding: 0.5rem 2rem;
+            border: none;
+            border-radius: 5px;
+            margin: 1rem 0;
+            cursor: pointer;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 44px;
+            background-image: linear-gradient(to bottom, #7c7c7c56, #33333300);
+            
+            height: 44px;
+            border-radius: 50%;
+            box-shadow: 0 10px 10px 0 #000000;
+            margin-top: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>JACOB ARVIDSON</h1>
+            <h2>ARTISAN BLACKSMITH</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <p class="rating">★★★★★</p>
+                    <p>"THE HOTTEST METAL AROUND"</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/xparentblacksmith.png" alt="Blacksmith at work" class="blacksmith-icon">
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="rating">★★★★★</p>
+                    <p>"THE MOST WANTED BLACKSMITH THIS SIDE OF THE MISSISSIPPI"</p>
+                </div>
+            </div>
+            <button class="explore-btn">EXPLORE PRODUCTS</button>
+        </header>
+
+        <!-- Featured Products -->
+        <section class="my-5">
+            <h3 class="text-center mb-4">FEATURED PRODUCTS</h3>
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="product-card">
+                                    <img src="img/knife3.png" alt="Hunting Knife">
+                                    <h4>HUNTING KNIFE</h4>
+                                    <p class="rating">★★★★★</p>
+                                    <p class="price">$69.42</p>
+                                    <p>High-quality, hand-made knife. Cold-forged classic hunting knife with 6" blade and full tang.</p>
+                                    <button class="explore-btn">LEARN MORE</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product-card">
+                                    <img src="img/knife3.png" alt="Skinning Knife">
+                                    <h4>SKINNING KNIFE</h4>
+                                    <p class="rating">★★★★★</p>
+                                    <p class="price">$69.42</p>
+                                    <p>High-quality, hand-made knife. Cold-forged classic knife with 6" blade and full tang.</p>
+                                    <button class="explore-btn">LEARN MORE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="row my-5">
+            <div class="col-md-6">
+                <h3>ABOUT MY CRAFT</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="img/xparentblacksmith.png" alt="Blacksmith at work" class="blacksmith-icon">
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="my-5">
+            <h3 class="text-center mb-4">WHAT MY CUSTOMERS SAY</h3>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="avatar1.jpg" alt="Customer">
+                        </div>
+                        <div class="col-md-10">
+                            <p class="rating">★★★★★</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat testimonial structure for other reviews -->
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="my-5">
+            <h3 class="text-center mb-4">FREQUENTLY ASKED QUESTIONS</h3>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item faq-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            WHAT IS COLD FORGED?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat accordion structure for other FAQ items -->
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Bootstrap components
+            var productCarousel = new bootstrap.Carousel(document.querySelector('#productCarousel'), {
+                interval: 5000
+            });
+
+            // Smooth scroll for navigation
+            $('.explore-btn').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $('#productCarousel').offset().top
+                }, 1000);
+            });
+
+            // Optional: Add animation for testimonials
+            $('.testimonial').hover(
+                function() { $(this).addClass('shadow-lg'); },
+                function() { $(this).removeClass('shadow-lg'); }
+            );
+        });
+    </script>
+</body>
+</html>
